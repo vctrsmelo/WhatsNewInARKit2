@@ -10,9 +10,10 @@ import UIKit
 //import SceneKit
 import ARKit
 
-class MapPersistenceViewController: UIViewController, SKSceneDelegate  {
+class MapPersistenceViewController: UIViewController, ARSCNViewDelegate  {
 
-    var sceneView: SKScene!
+    
+    @IBOutlet weak var sceneView: ARSCNView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
