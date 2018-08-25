@@ -12,7 +12,6 @@
 		EE5C085D21302A7B00F6296C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C085C21302A7B00F6296C /* MainViewController.swift */; };
 		EE5C086221302A7C00F6296C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE5C086121302A7C00F6296C /* Assets.xcassets */; };
 		EE5C086521302A7C00F6296C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5C086321302A7C00F6296C /* LaunchScreen.storyboard */; };
-		EE5C08712131E15C00F6296C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE5C08702131E15C00F6296C /* Default-568h@2x.png */; };
 		EE5C08762131E27900F6296C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C08752131E27900F6296C /* Coordinator.swift */; };
 		EE5C08782131E2CB00F6296C /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE5C08772131E2CB00F6296C /* MainViewController.xib */; };
 		EE5C087A2131E32E00F6296C /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C08792131E32E00F6296C /* ApplicationCoordinator.swift */; };
@@ -30,7 +29,6 @@
 		EE5C086121302A7C00F6296C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE5C086421302A7C00F6296C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE5C086621302A7C00F6296C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EE5C08702131E15C00F6296C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EE5C08752131E27900F6296C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		EE5C08772131E2CB00F6296C /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		EE5C08792131E32E00F6296C /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
@@ -54,7 +52,6 @@
 		EE5C084C21302A7B00F6296C = {
 			isa = PBXGroup;
 			children = (
-				EE5C08702131E15C00F6296C /* Default-568h@2x.png */,
 				EE5C085721302A7B00F6296C /* WhatsNewInARKit2 */,
 				EE5C085621302A7B00F6296C /* Products */,
 			);
@@ -197,7 +194,6 @@
 				EE5C085B21302A7B00F6296C /* art.scnassets in Resources */,
 				EE5C086521302A7C00F6296C /* LaunchScreen.storyboard in Resources */,
 				EE5C086221302A7C00F6296C /* Assets.xcassets in Resources */,
-				EE5C08712131E15C00F6296C /* Default-568h@2x.png in Resources */,
 				EE5C08832131EF9200F6296C /* MapPersistenceViewController.xib in Resources */,
 				EE5C08782131E2CB00F6296C /* MainViewController.xib in Resources */,
 			);
