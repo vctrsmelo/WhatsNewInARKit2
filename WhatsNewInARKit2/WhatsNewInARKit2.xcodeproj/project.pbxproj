@@ -15,10 +15,12 @@
 		EE5C08762131E27900F6296C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C08752131E27900F6296C /* Coordinator.swift */; };
 		EE5C08782131E2CB00F6296C /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE5C08772131E2CB00F6296C /* MainViewController.xib */; };
 		EE5C087A2131E32E00F6296C /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C08792131E32E00F6296C /* ApplicationCoordinator.swift */; };
-		EE5C087D2131E44B00F6296C /* MapPersistenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C087B2131E43600F6296C /* MapPersistenceViewController.swift */; };
+		EE5C087D2131E44B00F6296C /* PersistingMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C087B2131E43600F6296C /* PersistingMapViewController.swift */; };
 		EE5C087F2131E52300F6296C /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C087E2131E52300F6296C /* MainCoordinator.swift */; };
 		EE5C08812131EF2200F6296C /* MapPersistenceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C08802131EF2200F6296C /* MapPersistenceCoordinator.swift */; };
-		EE5C08832131EF9200F6296C /* MapPersistenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE5C08822131EF9200F6296C /* MapPersistenceViewController.xib */; };
+		EE5C08832131EF9200F6296C /* PersistingMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE5C08822131EF9200F6296C /* PersistingMapViewController.xib */; };
+		EEE63207213470E7006F58A9 /* LoadingMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE63206213470E7006F58A9 /* LoadingMapViewController.swift */; };
+		EEE6320921347126006F58A9 /* LoadingMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEE6320821347126006F58A9 /* LoadingMapViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,10 +34,12 @@
 		EE5C08752131E27900F6296C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		EE5C08772131E2CB00F6296C /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		EE5C08792131E32E00F6296C /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
-		EE5C087B2131E43600F6296C /* MapPersistenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPersistenceViewController.swift; sourceTree = "<group>"; };
+		EE5C087B2131E43600F6296C /* PersistingMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistingMapViewController.swift; sourceTree = "<group>"; };
 		EE5C087E2131E52300F6296C /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		EE5C08802131EF2200F6296C /* MapPersistenceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPersistenceCoordinator.swift; sourceTree = "<group>"; };
-		EE5C08822131EF9200F6296C /* MapPersistenceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapPersistenceViewController.xib; sourceTree = "<group>"; };
+		EE5C08822131EF9200F6296C /* PersistingMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersistingMapViewController.xib; sourceTree = "<group>"; };
+		EEE63206213470E7006F58A9 /* LoadingMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingMapViewController.swift; sourceTree = "<group>"; };
+		EEE6320821347126006F58A9 /* LoadingMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingMapViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,9 +114,9 @@
 		EE5C086F2130E60000F6296C /* Map Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				EE5C087B2131E43600F6296C /* MapPersistenceViewController.swift */,
 				EE5C08802131EF2200F6296C /* MapPersistenceCoordinator.swift */,
-				EE5C08822131EF9200F6296C /* MapPersistenceViewController.xib */,
+				EEE6320521346C77006F58A9 /* Persisting Map */,
+				EEE6320321346C67006F58A9 /* Loading Map */,
 			);
 			path = "Map Persistence";
 			sourceTree = "<group>";
@@ -131,6 +135,24 @@
 				EE5C08752131E27900F6296C /* Coordinator.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		EEE6320321346C67006F58A9 /* Loading Map */ = {
+			isa = PBXGroup;
+			children = (
+				EEE63206213470E7006F58A9 /* LoadingMapViewController.swift */,
+				EEE6320821347126006F58A9 /* LoadingMapViewController.xib */,
+			);
+			path = "Loading Map";
+			sourceTree = "<group>";
+		};
+		EEE6320521346C77006F58A9 /* Persisting Map */ = {
+			isa = PBXGroup;
+			children = (
+				EE5C087B2131E43600F6296C /* PersistingMapViewController.swift */,
+				EE5C08822131EF9200F6296C /* PersistingMapViewController.xib */,
+			);
+			path = "Persisting Map";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,8 +215,9 @@
 			files = (
 				EE5C085B21302A7B00F6296C /* art.scnassets in Resources */,
 				EE5C086521302A7C00F6296C /* LaunchScreen.storyboard in Resources */,
+				EEE6320921347126006F58A9 /* LoadingMapViewController.xib in Resources */,
 				EE5C086221302A7C00F6296C /* Assets.xcassets in Resources */,
-				EE5C08832131EF9200F6296C /* MapPersistenceViewController.xib in Resources */,
+				EE5C08832131EF9200F6296C /* PersistingMapViewController.xib in Resources */,
 				EE5C08782131E2CB00F6296C /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,10 +229,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE5C087D2131E44B00F6296C /* MapPersistenceViewController.swift in Sources */,
+				EE5C087D2131E44B00F6296C /* PersistingMapViewController.swift in Sources */,
 				EE5C085D21302A7B00F6296C /* MainViewController.swift in Sources */,
 				EE5C08812131EF2200F6296C /* MapPersistenceCoordinator.swift in Sources */,
 				EE5C085921302A7B00F6296C /* AppDelegate.swift in Sources */,
+				EEE63207213470E7006F58A9 /* LoadingMapViewController.swift in Sources */,
 				EE5C08762131E27900F6296C /* Coordinator.swift in Sources */,
 				EE5C087A2131E32E00F6296C /* ApplicationCoordinator.swift in Sources */,
 				EE5C087F2131E52300F6296C /* MainCoordinator.swift in Sources */,
