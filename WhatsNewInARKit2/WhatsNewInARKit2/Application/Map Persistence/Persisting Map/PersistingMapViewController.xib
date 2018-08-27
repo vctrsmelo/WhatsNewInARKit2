@@ -40,6 +40,14 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mkr-Zr-uch">
+                    <rect key="frame" x="60" y="570" width="255" height="30"/>
+                    <color key="backgroundColor" white="0.89453125" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Clear Map"/>
+                    <connections>
+                        <action selector="didTouchClearButton:" destination="-1" eventType="touchUpInside" id="JFe-DP-9AY"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <gestureRecognizers/>
@@ -50,7 +58,9 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="aDW-iN-bMU" secondAttribute="bottom" id="PHd-wx-DHg"/>
                 <constraint firstItem="aDW-iN-bMU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Ylo-Cq-thr"/>
                 <constraint firstItem="LJ2-1X-KWU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fSO-rf-aEu"/>
+                <constraint firstItem="Mkr-Zr-uch" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="iXG-Tf-shu"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="LJ2-1X-KWU" secondAttribute="bottom" constant="20" id="noU-Qn-lMl"/>
+                <constraint firstItem="LJ2-1X-KWU" firstAttribute="top" secondItem="Mkr-Zr-uch" secondAttribute="bottom" constant="17" id="qF0-1F-pM3"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LJ2-1X-KWU" secondAttribute="trailing" constant="60" id="qhc-qG-tpc"/>
                 <constraint firstItem="aDW-iN-bMU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="skz-2f-UNW"/>
             </constraints>

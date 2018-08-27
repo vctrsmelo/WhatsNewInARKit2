@@ -12,10 +12,9 @@ import ARKit
 class PersistingMapViewController: UIViewController, ARSCNViewDelegate  {
 
     @IBOutlet weak var sceneView: ARSCNView!
-    let mugNode = SCNScene(named: "art.scnassets/mug.scn")!.rootNode
-    var plane: VirtualPlane!
     @IBOutlet weak var stateLabel: UILabel!
-    let mugAnchorName = "mugAnchor"
+    
+    private var mugAnchors: [ARAnchor] = []
     
     private let fileURL: URL = {
         let documentsDirectory = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, .userDomainMask, true)[0] as String
@@ -27,10 +26,10 @@ class PersistingMapViewController: UIViewController, ARSCNViewDelegate  {
         
         // Set the view's delegate
         sceneView.delegate = self
-
+        
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
-
+        
         // Create a new scene
         let scene = SCNScene()
         self.sceneView.debugOptions = ARSCNDebugOptions.showFeaturePoints
@@ -40,29 +39,17 @@ class PersistingMapViewController: UIViewController, ARSCNViewDelegate  {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = .horizontal
-        sceneView.session.run(configuration)
         
+        do {
+            let worldMap = try loadWorldMap(from: fileURL)
+            let configuration = ARWorldTrackingConfiguration()
+            configuration.planeDetection = .horizontal
+            configuration.initialWorldMap = worldMap
+            sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        } catch {
+            print(error.localizedDescription)
+        }
         
-        // Create a session configuration
-//        let configuration = ARWorldTrackingConfiguration()
-//        configuration.planeDetection = .horizontal
-//        do {
-//            configuration.initialWorldMap = try loadWorldMap(from: fileURL)
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-        
-        // Run the view's session
-//        sceneView.session.run(configuration)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Pause the view's session
-        sceneView.session.pause()
     }
     
     func sessionShouldAttemptRelocalization(_ session: ARSession) -> Bool {
@@ -76,38 +63,20 @@ class PersistingMapViewController: UIViewController, ARSCNViewDelegate  {
         case .notAvailable:
             stateLabel.text = "Not Available"
         case .limited(let reason):
-            stateLabel.text = "Limited (reason: \(reason))"
+            stateLabel.text = "Limited (reason: \(reason)) - Save a scene?"
         case .normal:
             stateLabel.text = "Normal"
         }
     }
     
-    // MARK: - ARSCNViewDelegate
-    
-    /*
-     // Override to create and configure nodes for anchors added to the view's session.
-     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-     let node = SCNNode()
-     
-     return node
-     }
-     */
-    
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         
         if let name = anchor.name, name.hasPrefix("mugAnchor") {
+            mugAnchors.append(anchor)
             node.addChildNode(loadMug())
             return
         }
     }
-    
-    func cleanupARSession() {
-        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) -> Void in
-            node.removeFromParentNode()
-        }
-    }
-    
-    
     
     @IBAction func handleSceneTap(_ sender: UITapGestureRecognizer) {
 
@@ -121,17 +90,13 @@ class PersistingMapViewController: UIViewController, ARSCNViewDelegate  {
         sceneView.session.add(anchor: anchor)
     }
     
-    // MARK: - AR session management
-    private func loadMug() -> SCNNode {
-        let sceneURL = Bundle.main.url(forResource: "mug", withExtension: "scn", subdirectory: "art.scnassets")!
-        let referenceNode = SCNReferenceNode(url: sceneURL)!
-        referenceNode.load()
-        return referenceNode
-    }
-    
-    
     @IBAction func didTouchClearButton(_ sender: UIButton) {
-        cleanupARSession()
+        while !mugAnchors.isEmpty {
+            sceneView.session.remove(anchor: mugAnchors.popLast()!)
+        }
+        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) -> Void in
+            node.removeFromParentNode()
+        }
     }
     
     @IBAction func didTouchSaveButton(_ sender: UIButton) {
@@ -149,23 +114,17 @@ class PersistingMapViewController: UIViewController, ARSCNViewDelegate  {
         }
     }
     
-//    @IBAction func didTouchLoadButton(_ sender: UIButton) {
-//        do {
-//            let worldMap = try self.loadWorldMap(from: fileURL)
-//            let configuration = ARWorldTrackingConfiguration()
-//            configuration.initialWorldMap = worldMap
-//            sceneView.session.run(configuration)
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//    }
-    
-    
-    
     func saveWorldMap(_ worldMap: ARWorldMap, to url: URL) throws {
         let data = try NSKeyedArchiver.archivedData(withRootObject: worldMap, requiringSecureCoding: true)
         try data.write(to: url)
         print("saved")
+    }
+    
+    private func loadMug() -> SCNNode {
+        let sceneURL = Bundle.main.url(forResource: "mug", withExtension: "scn", subdirectory: "art.scnassets")!
+        let referenceNode = SCNReferenceNode(url: sceneURL)!
+        referenceNode.load()
+        return referenceNode
     }
     
     func loadWorldMap(from url: URL) throws -> ARWorldMap {
@@ -174,52 +133,5 @@ class PersistingMapViewController: UIViewController, ARSCNViewDelegate  {
             else { throw ARError(.invalidWorldMap) }
         print("loaded")
         return worldMap
-    }
-}
-
-class VirtualPlane: SCNNode {
-    var anchor: ARPlaneAnchor!
-    var planeGeometry: SCNPlane!
-    
-    init(anchor: ARPlaneAnchor) {
-        super.init()
-        
-        // (1) initialize anchor and geometry, set color for plane
-        self.anchor = anchor
-        self.planeGeometry = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z))
-        let material = initializePlaneMaterial()
-        self.planeGeometry!.materials = [material]
-        
-        // (2) create the SceneKit plane node. As planes in SceneKit are vertical, we need to initialize the y coordinate to 0,
-        // use the z coordinate, and rotate it 90º.
-        let planeNode = SCNNode(geometry: self.planeGeometry)
-        planeNode.position = SCNVector3(anchor.center.x, 0, anchor.center.z)
-        planeNode.transform = SCNMatrix4MakeRotation(-Float.pi / 2.0, 1.0, 0.0, 0.0)
-        
-        // (3) update the material representation for this plane
-        updatePlaneMaterialDimensions()
-        
-        // (4) add this node to our hierarchy.
-        self.addChildNode(planeNode)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    func initializePlaneMaterial() -> SCNMaterial {
-        let material = SCNMaterial()
-        material.diffuse.contents = UIColor.white.withAlphaComponent(0.50)
-        return material
-    }
-    
-    func updatePlaneMaterialDimensions() {
-        // get material or recreate
-        let material = self.planeGeometry.materials.first!
-        
-        // scale material to width and height of the updated plane
-        let width = Float(self.planeGeometry.width)
-        let height = Float(self.planeGeometry.height)
-        material.diffuse.contentsTransform = SCNMatrix4MakeScale(width, height, 1.0)
     }
 }
