@@ -2,17 +2,29 @@ import UIKit
 
 class MapPersistenceCoordinator: Coordinator {
     private var presenter: UINavigationController
-    private var mapPersistenceViewController: MapPersistenceViewController?
+    private var persistingViewController: PersistingMapViewController?
+    private var loadingMapViewController: LoadingMapViewController?
     
     init(presenter: UINavigationController) {
         self.presenter = presenter
     }
     
     func start() {
-        let mapPersistenceViewController = MapPersistenceViewController(nibName: nil, bundle: nil)
-        mapPersistenceViewController.title = "Persistence Demo"
-        presenter.pushViewController(mapPersistenceViewController, animated: true)
+        let persistingViewController = PersistingMapViewController(nibName: nil, bundle: nil)
+        persistingViewController.title = "Persistence Demo"
+        persistingViewController.navigationItem.setRightBarButton(UIBarButtonItem(title: "Load Demo", style: .plain, target: self, action: #selector(presentLoadingMapViewController))
+            , animated: false)
         
-        self.mapPersistenceViewController = mapPersistenceViewController
+        presenter.pushViewController(persistingViewController, animated: true)
+        
+        self.persistingViewController = persistingViewController
+    }
+    
+    @objc
+    func presentLoadingMapViewController(sender: UIBarButtonItem) {
+        let loadingMapViewController = LoadingMapViewController(nibName: nil, bundle: nil)
+        loadingMapViewController.title = "Loading Demo"
+        presenter.pushViewController(loadingMapViewController, animated: true)
+        self.loadingMapViewController = loadingMapViewController
     }
 }
