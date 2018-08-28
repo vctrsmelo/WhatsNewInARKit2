@@ -2,10 +2,13 @@ import UIKit
 
 class MainCoordinator: Coordinator {
 
+    private var mapPersistenceCoordinator: MapPersistenceCoordinator?
+    private var environmentTextureCoordinator: EnvironmentTextureCoordinator?
+    
     private let presenter: UINavigationController
     private var mainViewController: MainViewController?
     
-    private let flowsTitle = ["Map Persistence"]
+    private let flowsTitle = ["Map Persistence", "Environment Texture"]
 
     
     init(presenter: UINavigationController) {
@@ -27,7 +30,13 @@ extension MainCoordinator: MainViewControllerDelegate {
     func mainViewControllerDidSelectFlow(_ selectedFlow: String) {
         switch selectedFlow {
         case "Map Persistence":
-            break
+            let mapPersistenceCoordinator = MapPersistenceCoordinator(presenter: presenter)
+            mapPersistenceCoordinator.start()
+            self.mapPersistenceCoordinator = mapPersistenceCoordinator
+        case "Environment Texture":
+            let environmentTextureCoordinator = EnvironmentTextureCoordinator(presenter: presenter)
+            environmentTextureCoordinator.start()
+            self.environmentTextureCoordinator = environmentTextureCoordinator
         default:
             break
         }
