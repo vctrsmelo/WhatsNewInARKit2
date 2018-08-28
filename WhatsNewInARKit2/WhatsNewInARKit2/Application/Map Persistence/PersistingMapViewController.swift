@@ -48,6 +48,9 @@ class PersistingMapViewController: UIViewController, ARSCNViewDelegate  {
             sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         } catch {
             print(error.localizedDescription)
+            let configuration = ARWorldTrackingConfiguration()
+            configuration.planeDetection = .horizontal
+            sceneView.session.run(configuration)
         }
         
     }
@@ -63,7 +66,7 @@ class PersistingMapViewController: UIViewController, ARSCNViewDelegate  {
         case .notAvailable:
             stateLabel.text = "Not Available"
         case .limited(let reason):
-            stateLabel.text = "Limited (reason: \(reason)) - Save a scene?"
+            stateLabel.text = "Limited (reason: \(reason))"
         case .normal:
             stateLabel.text = "Normal"
         }
