@@ -4,11 +4,14 @@ class MainCoordinator: Coordinator {
 
     private var mapPersistenceCoordinator: MapPersistenceCoordinator?
     private var environmentTextureCoordinator: EnvironmentTextureCoordinator?
+    private var imageTrackingCoordinator: ImageTrackingCoordinator?
     
     private let presenter: UINavigationController
     private var mainViewController: MainViewController?
     
-    private let flowsTitle = ["Map Persistence", "Environment Texture"]
+    private let flowsTitle = ["Map Persistence",
+                              "Environment Texture",
+                              "Image Tracking"]
 
     
     init(presenter: UINavigationController) {
@@ -37,6 +40,10 @@ extension MainCoordinator: MainViewControllerDelegate {
             let environmentTextureCoordinator = EnvironmentTextureCoordinator(presenter: presenter)
             environmentTextureCoordinator.start()
             self.environmentTextureCoordinator = environmentTextureCoordinator
+        case "Image Tracking":
+            let imageTrackingCoordinator = ImageTrackingCoordinator(presenter: presenter)
+            imageTrackingCoordinator.start()
+            self.imageTrackingCoordinator = imageTrackingCoordinator
         default:
             break
         }

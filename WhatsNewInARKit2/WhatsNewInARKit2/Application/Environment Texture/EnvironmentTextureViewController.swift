@@ -52,12 +52,6 @@ class EnvironmentTextureViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.add(anchor: anchor)
     }
     
-    @IBAction func didTouchClearButton(_ sender: UIButton) {
-        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) -> Void in
-            node.removeFromParentNode()
-        }
-    }
-    
     private func loadMug() -> SCNNode {
         let sceneURL = Bundle.main.url(forResource: "mug", withExtension: "scn", subdirectory: "art.scnassets")!
         let referenceNode = SCNReferenceNode(url: sceneURL)!
