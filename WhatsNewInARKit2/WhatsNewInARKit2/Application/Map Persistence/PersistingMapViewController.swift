@@ -94,6 +94,7 @@ class PersistingMapViewController: UIViewController, ARSCNViewDelegate  {
     }
     
     @IBAction func didTouchClearButton(_ sender: UIButton) {
+        resetFile()
         while !mugAnchors.isEmpty {
             sceneView.session.remove(anchor: mugAnchors.popLast()!)
         }
@@ -114,6 +115,14 @@ class PersistingMapViewController: UIViewController, ARSCNViewDelegate  {
             } catch {
                 print(error.localizedDescription)
             }
+        }
+    }
+    
+    func resetFile() {
+        do {
+            try FileManager.default.removeItem(at: fileURL)
+        } catch {
+            print("Couldn't delete file: \(error.localizedDescription)")
         }
     }
     

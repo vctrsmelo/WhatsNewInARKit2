@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE3457A021378323007F52AA /* meme.png in Resources */ = {isa = PBXBuildFile; fileRef = EE34579F21378323007F52AA /* meme.png */; };
 		EE5C085921302A7B00F6296C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C085821302A7B00F6296C /* AppDelegate.swift */; };
 		EE5C085B21302A7B00F6296C /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = EE5C085A21302A7B00F6296C /* art.scnassets */; };
 		EE5C085D21302A7B00F6296C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C085C21302A7B00F6296C /* MainViewController.swift */; };
@@ -22,9 +23,13 @@
 		EEEC01C02135AF11001C438C /* EnvironmentTextureCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC01BF2135AF11001C438C /* EnvironmentTextureCoordinator.swift */; };
 		EEEC01C22135AF6F001C438C /* EnvironmentTextureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC01C12135AF6F001C438C /* EnvironmentTextureViewController.swift */; };
 		EEEC01C42135AF90001C438C /* EnvironmentTextureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEEC01C32135AF90001C438C /* EnvironmentTextureViewController.xib */; };
+		EEEC01C721373490001C438C /* ImageTrackingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC01C621373490001C438C /* ImageTrackingCoordinator.swift */; };
+		EEEC01C92137349B001C438C /* ImageTrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC01C82137349B001C438C /* ImageTrackingViewController.swift */; };
+		EEEC01CB213734AC001C438C /* ImageTrackingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEEC01CA213734AC001C438C /* ImageTrackingViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE34579F21378323007F52AA /* meme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meme.png; sourceTree = "<group>"; };
 		EE5C085521302A7B00F6296C /* WhatsNewInARKit2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsNewInARKit2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5C085821302A7B00F6296C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE5C085A21302A7B00F6296C /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -42,6 +47,9 @@
 		EEEC01BF2135AF11001C438C /* EnvironmentTextureCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentTextureCoordinator.swift; sourceTree = "<group>"; };
 		EEEC01C12135AF6F001C438C /* EnvironmentTextureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentTextureViewController.swift; sourceTree = "<group>"; };
 		EEEC01C32135AF90001C438C /* EnvironmentTextureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnvironmentTextureViewController.xib; sourceTree = "<group>"; };
+		EEEC01C621373490001C438C /* ImageTrackingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTrackingCoordinator.swift; sourceTree = "<group>"; };
+		EEEC01C82137349B001C438C /* ImageTrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTrackingViewController.swift; sourceTree = "<group>"; };
+		EEEC01CA213734AC001C438C /* ImageTrackingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTrackingViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +96,7 @@
 				EE5C086D2130DF9900F6296C /* Main */,
 				EE5C086F2130E60000F6296C /* Map Persistence */,
 				EEEC01BE2135AEE1001C438C /* Environment Texture */,
+				EEEC01C521373461001C438C /* Image Tracking */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -150,6 +159,17 @@
 			path = "Environment Texture";
 			sourceTree = "<group>";
 		};
+		EEEC01C521373461001C438C /* Image Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				EEEC01C621373490001C438C /* ImageTrackingCoordinator.swift */,
+				EEEC01C82137349B001C438C /* ImageTrackingViewController.swift */,
+				EEEC01CA213734AC001C438C /* ImageTrackingViewController.xib */,
+				EE34579F21378323007F52AA /* meme.png */,
+			);
+			path = "Image Tracking";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -209,6 +229,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEEC01C42135AF90001C438C /* EnvironmentTextureViewController.xib in Resources */,
+				EE3457A021378323007F52AA /* meme.png in Resources */,
+				EEEC01CB213734AC001C438C /* ImageTrackingViewController.xib in Resources */,
 				EE5C085B21302A7B00F6296C /* art.scnassets in Resources */,
 				EE5C086521302A7C00F6296C /* LaunchScreen.storyboard in Resources */,
 				EE5C086221302A7C00F6296C /* Assets.xcassets in Resources */,
@@ -229,8 +251,10 @@
 				EE5C085D21302A7B00F6296C /* MainViewController.swift in Sources */,
 				EEEC01C22135AF6F001C438C /* EnvironmentTextureViewController.swift in Sources */,
 				EE5C08812131EF2200F6296C /* MapPersistenceCoordinator.swift in Sources */,
+				EEEC01C721373490001C438C /* ImageTrackingCoordinator.swift in Sources */,
 				EE5C085921302A7B00F6296C /* AppDelegate.swift in Sources */,
 				EE5C08762131E27900F6296C /* Coordinator.swift in Sources */,
+				EEEC01C92137349B001C438C /* ImageTrackingViewController.swift in Sources */,
 				EE5C087A2131E32E00F6296C /* ApplicationCoordinator.swift in Sources */,
 				EE5C087F2131E52300F6296C /* MainCoordinator.swift in Sources */,
 			);
