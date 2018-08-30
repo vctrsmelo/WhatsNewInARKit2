@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  WhatsNewInARKit2
-//
-//  Created by Victor S Melo on 24/08/18.
-//  Copyright © 2018 Victor Melo. All rights reserved.
-//
-
 import UIKit
 import ARKit
 
@@ -16,6 +8,7 @@ class PersistingMapViewController: UIViewController, ARSCNViewDelegate  {
     
     private var mugAnchors: [ARAnchor] = []
     
+    ///URL to world map file
     private let fileURL: URL = {
         let documentsDirectory = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, .userDomainMask, true)[0] as String
         return URL(fileURLWithPath: "\(documentsDirectory)/worldMap")
@@ -52,31 +45,7 @@ class PersistingMapViewController: UIViewController, ARSCNViewDelegate  {
         
     }
     
-    func sessionShouldAttemptRelocalization(_ session: ARSession) -> Bool {
-        return true
-    }
-    
-    func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
-        
-        switch camera.trackingState {
-            
-        case .notAvailable:
-            stateLabel.text = "Not Available"
-        case .limited(let reason):
-            stateLabel.text = "Limited (reason: \(reason))"
-        case .normal:
-            stateLabel.text = "Normal"
-        }
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        
-        if let name = anchor.name, name.hasPrefix("mugAnchor") {
-            mugAnchors.append(anchor)
-            node.addChildNode(loadMug())
-            return
-        }
-    }
+    //MARK:- UI Interactions
     
     @IBAction func handleSceneTap(_ sender: UITapGestureRecognizer) {
 
@@ -115,6 +84,43 @@ class PersistingMapViewController: UIViewController, ARSCNViewDelegate  {
         }
     }
     
+    //MARK:- ARKit
+    
+    func sessionShouldAttemptRelocalization(_ session: ARSession) -> Bool {
+        return true
+    }
+    
+    func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
+        
+        switch camera.trackingState {
+            
+        case .notAvailable:
+            stateLabel.text = "Not Available"
+        case .limited(let reason):
+            stateLabel.text = "Limited (reason: \(reason))"
+        case .normal:
+            stateLabel.text = "Normal"
+        }
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        
+        if let name = anchor.name, name.hasPrefix("mugAnchor") {
+            mugAnchors.append(anchor)
+            node.addChildNode(loadMug())
+            return
+        }
+    }
+    
+    private func loadMug() -> SCNNode {
+        let sceneURL = Bundle.main.url(forResource: "mug", withExtension: "scn", subdirectory: "art.scnassets")!
+        let referenceNode = SCNReferenceNode(url: sceneURL)!
+        referenceNode.load()
+        return referenceNode
+    }
+    
+    //MARK:- WorldMap file management
+    
     func resetFile() {
         do {
             try FileManager.default.removeItem(at: fileURL)
@@ -127,13 +133,6 @@ class PersistingMapViewController: UIViewController, ARSCNViewDelegate  {
         let data = try NSKeyedArchiver.archivedData(withRootObject: worldMap, requiringSecureCoding: true)
         try data.write(to: url)
         print("saved")
-    }
-    
-    private func loadMug() -> SCNNode {
-        let sceneURL = Bundle.main.url(forResource: "mug", withExtension: "scn", subdirectory: "art.scnassets")!
-        let referenceNode = SCNReferenceNode(url: sceneURL)!
-        referenceNode.load()
-        return referenceNode
     }
     
     func loadWorldMap(from url: URL) throws -> ARWorldMap {

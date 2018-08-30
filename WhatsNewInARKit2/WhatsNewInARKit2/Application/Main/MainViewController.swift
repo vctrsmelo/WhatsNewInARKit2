@@ -1,14 +1,4 @@
-//
-//  ViewController.swift
-//  WhatsNewInARKit2
-//
-//  Created by Victor S Melo on 24/08/18.
-//  Copyright © 2018 Victor Melo. All rights reserved.
-//
-
 import UIKit
-//import SceneKit
-import ARKit
 
 protocol MainViewControllerDelegate: class {
     func mainViewControllerDidSelectFlow(_ selectedFlow: String)

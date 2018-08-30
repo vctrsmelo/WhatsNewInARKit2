@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EE3457A021378323007F52AA /* meme.png in Resources */ = {isa = PBXBuildFile; fileRef = EE34579F21378323007F52AA /* meme.png */; };
+		EE58250E2138921A008530FB /* meme2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EE58250D2138921A008530FB /* meme2.jpg */; };
 		EE5C085921302A7B00F6296C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C085821302A7B00F6296C /* AppDelegate.swift */; };
 		EE5C085B21302A7B00F6296C /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = EE5C085A21302A7B00F6296C /* art.scnassets */; };
 		EE5C085D21302A7B00F6296C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C085C21302A7B00F6296C /* MainViewController.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		EE34579F21378323007F52AA /* meme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meme.png; sourceTree = "<group>"; };
+		EE58250D2138921A008530FB /* meme2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = meme2.jpg; sourceTree = "<group>"; };
 		EE5C085521302A7B00F6296C /* WhatsNewInARKit2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsNewInARKit2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5C085821302A7B00F6296C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE5C085A21302A7B00F6296C /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				EEEC01C82137349B001C438C /* ImageTrackingViewController.swift */,
 				EEEC01CA213734AC001C438C /* ImageTrackingViewController.xib */,
 				EE34579F21378323007F52AA /* meme.png */,
+				EE58250D2138921A008530FB /* meme2.jpg */,
 			);
 			path = "Image Tracking";
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				EE3457A021378323007F52AA /* meme.png in Resources */,
 				EEEC01CB213734AC001C438C /* ImageTrackingViewController.xib in Resources */,
 				EE5C085B21302A7B00F6296C /* art.scnassets in Resources */,
+				EE58250E2138921A008530FB /* meme2.jpg in Resources */,
 				EE5C086521302A7C00F6296C /* LaunchScreen.storyboard in Resources */,
 				EE5C086221302A7C00F6296C /* Assets.xcassets in Resources */,
 				EE5C08832131EF9200F6296C /* PersistingMapViewController.xib in Resources */,
