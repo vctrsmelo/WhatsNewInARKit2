@@ -25,14 +25,6 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <gestureRecognizers/>
                 </arscnView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJ2-1X-KWU">
-                    <rect key="frame" x="60" y="617" width="255" height="30"/>
-                    <color key="backgroundColor" white="0.89453125" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" title="Save"/>
-                    <connections>
-                        <action selector="didTouchSaveButton:" destination="-1" eventType="touchUpInside" id="juo-bc-Umv"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nre-pC-0Xo">
                     <rect key="frame" x="166.5" y="44" width="42" height="21"/>
                     <color key="backgroundColor" white="0.72501627599999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -40,29 +32,45 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mkr-Zr-uch">
-                    <rect key="frame" x="60" y="570" width="255" height="30"/>
-                    <color key="backgroundColor" white="0.89453125" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" title="Clear Map"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mkr-Zr-uch">
+                    <rect key="frame" x="16" y="617" width="155.5" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="Clear Data">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                     <connections>
                         <action selector="didTouchClearButton:" destination="-1" eventType="touchUpInside" id="JFe-DP-9AY"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJ2-1X-KWU">
+                    <rect key="frame" x="203.5" y="617" width="155.5" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="Save">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="didTouchSaveButton:" destination="-1" eventType="touchUpInside" id="juo-bc-Umv"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <gestureRecognizers/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LJ2-1X-KWU" secondAttribute="trailing" constant="16" id="09m-gv-9DJ"/>
+                <constraint firstItem="LJ2-1X-KWU" firstAttribute="leading" secondItem="Mkr-Zr-uch" secondAttribute="trailing" constant="32" id="1dM-w1-3IU"/>
+                <constraint firstItem="LJ2-1X-KWU" firstAttribute="width" secondItem="Mkr-Zr-uch" secondAttribute="width" id="969-o5-iDa"/>
+                <constraint firstItem="LJ2-1X-KWU" firstAttribute="height" secondItem="Mkr-Zr-uch" secondAttribute="height" id="APv-l5-yVF"/>
                 <constraint firstItem="Nre-pC-0Xo" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="24" id="Bfa-6l-Gik"/>
                 <constraint firstItem="Nre-pC-0Xo" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="N0d-r1-l7G"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aDW-iN-bMU" secondAttribute="trailing" id="OM7-ZS-6Sx"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="aDW-iN-bMU" secondAttribute="bottom" id="PHd-wx-DHg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="LJ2-1X-KWU" secondAttribute="bottom" constant="20" id="QLP-yi-zou"/>
                 <constraint firstItem="aDW-iN-bMU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Ylo-Cq-thr"/>
-                <constraint firstItem="LJ2-1X-KWU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fSO-rf-aEu"/>
-                <constraint firstItem="Mkr-Zr-uch" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="iXG-Tf-shu"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="LJ2-1X-KWU" secondAttribute="bottom" constant="20" id="noU-Qn-lMl"/>
-                <constraint firstItem="LJ2-1X-KWU" firstAttribute="top" secondItem="Mkr-Zr-uch" secondAttribute="bottom" constant="17" id="qF0-1F-pM3"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LJ2-1X-KWU" secondAttribute="trailing" constant="60" id="qhc-qG-tpc"/>
+                <constraint firstItem="Mkr-Zr-uch" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="iJ5-JO-7e4"/>
                 <constraint firstItem="aDW-iN-bMU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="skz-2f-UNW"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Mkr-Zr-uch" secondAttribute="bottom" constant="20" id="wTo-RY-Tlt"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
