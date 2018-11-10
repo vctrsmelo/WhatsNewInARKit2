@@ -22,6 +22,7 @@ https://developer.apple.com/documentation/arkit/swiftshot_creating_a_game_for_au
 https://medium.com/@ivannesterenko/realistic-reflections-and-environment-textures-in-arkit-2-0-d8d0f1332eed
 
 ### Object Detection
+https://blog.usejournal.com/an-introduction-to-arkit-2-object-scanning-68963b9be43a
 
 
 ### Image Tracking
