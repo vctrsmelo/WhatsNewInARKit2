@@ -23,4 +23,7 @@ https://medium.com/@ivannesterenko/realistic-reflections-and-environment-texture
 
 ### Object Detection
 
+
 ### Image Tracking
+https://developer.apple.com/documentation/arkit/recognizing_images_in_an_ar_experience
+https://medium.com/@mohams3ios01/an-introduction-to-arkit-2-image-tracking-730fdff4e3fa
